@@ -1,0 +1,34 @@
+<div data-hook="admin_dhl_shipping_zone_form_fields">
+  <div class="alpha twelve columns">
+    <fieldset data-hook="dhl_shipping_zone" class=" no-border-bottom">
+      <legend align="center"><%= Spree.t(:general_settings) %></legend>
+      <div class="alpha six columns">
+        <div data-hook="shipping_method" class="field">
+          <%= f.label :shipping_method, Spree.t(:shipping_method) %>
+          <%= f.collection_select(:dhl_shipping_method_id, @dhl_shipping_methods, :id, :name, {}, {:class => 'select2 fullwidth'}) %>
+        </div>
+      </div>
+      <div class="omega six columns">
+        <div data-hook="name" class="field">
+          <%= f.label :name, Spree.t(:name) %>
+          <%= f.text_field :name, :class => 'fullwidth' %>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="alpha six columns">
+        <div data-hook="per_weigh_unit" class="field">
+          <%= f.label :per_weigh_unit, Spree.t(:per_weigh_unit) %>
+          <%= f.text_field :per_weigh_unit, :class => 'fullwidth' %>
+        </div>
+      </div>
+      <div class="omega six columns">
+        <div data-hook="opening_tariff" class="field">
+          <%= f.label :opening_tariff, Spree.t(:opening_tariff) %>
+          <%= f.text_field :opening_tariff, :class => 'fullwidth' %>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="clear"></div>
+</div>

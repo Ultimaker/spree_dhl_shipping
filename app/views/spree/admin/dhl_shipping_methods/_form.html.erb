@@ -1,0 +1,34 @@
+<div data-hook="admin_dhl_shipping_method_form_fields">
+  <div class="alpha twelve columns">
+    <fieldset data-hook="dhl_shipping_method" class=" no-border-bottom">
+      <legend align="center"><%= Spree.t(:general_settings) %></legend>
+      <div class="alpha six columns">
+        <div data-hook="method_class" class="field">
+          <%= f.label :method_class, Spree.t(:method_class) %>
+          <%= f.collection_select(:method_class, [Spree::Calculator::Shipping::DhlEuroplus, Spree::Calculator::Shipping::DhlExpress], :to_s, :decription, {}, {:class => 'select2 fullwidth'}) %>
+        </div>
+      </div>
+      <div class="omega six columns">
+        <div data-hook="name" class="field">
+          <%= f.label :name, Spree.t(:name) %>
+          <%= f.text_field :name, :class => 'fullwidth' %>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="alpha six columns">
+        <div data-hook="volume_factor" class="field">
+          <%= f.label :volume_factor, Spree.t(:volume_factor) %>
+          <%= f.text_field :volume_factor, :class => 'fullwidth' %>
+        </div>
+      </div>
+      <div class="omega six columns">
+        <div data-hook="volume_size_threshold" class="field">
+          <%= f.label :volume_size_threshold, Spree.t(:volume_size_threshold) %>
+          <%= f.text_field :volume_size_threshold, :class => 'fullwidth' %>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="clear"></div>
+</div>

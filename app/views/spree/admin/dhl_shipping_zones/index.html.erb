@@ -1,0 +1,54 @@
+<%= render partial: 'spree/admin/shared/configuration_menu' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:dhl_shipping_zones) %> - <%= @dhl_shipping_method.name %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to Spree.t(:back), spree.admin_dhl_shipping_methods_path, icon: 'icon-arrow-left' %>
+  </li>
+  <li>
+    <%= button_link_to Spree.t(:new_shipping_zone), new_object_url, icon: 'icon-plus' %>
+  </li>
+<% end %>
+
+<% unless @dhl_shipping_zones.any? %>
+  <div class="no-objects-found">
+    <%= Spree.t(:no_results) %>
+  </div>
+<% else %>
+  <table class="index">
+    <colgroup>
+      <col style="width: 10%">
+      <col style="width: 41%">
+      <col style="width: 14%">
+      <col style="width: 14%">
+      <col style="width: 21%">
+    </colgroup>
+    <thead>
+      <tr data-hook="dhl_shipping_zones_header">
+        <th><%= Spree.t(:shipping_zone_name) %></th>
+        <th><%= Spree.t(:shipping_zone_countries) %></th>
+        <th><%= Spree.t(:per_weigh_unit) %></th>
+        <th><%= Spree.t(:opening_tariff) %></th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dhl_shipping_zones.each do |shipping_zone|%>
+        <tr id="<%= spree_dom_id shipping_zone %>" data-hook="rate_row" class="<%= cycle('odd', 'even')%>">
+          <td><%= shipping_zone.name %></td>
+          <td><%= shipping_zone.country_zones.any? ? shipping_zone.country_zones.map(&:country).flatten.map(&:name).join(', ') : Spree.t(:not_available) %></td>
+          <td><%= number_to_currency(shipping_zone.per_weigh_unit, precision: 4, unit: Spree::Config[:currency] + ' ', delimiter: Spree::Config[:currency_thousands_separator], seperator: Spree::Config[:currency_decimal_mark]) %></td>
+          <td><%= number_to_currency(shipping_zone.opening_tariff, precision: 4, unit: Spree::Config[:currency] + ' ', delimiter: Spree::Config[:currency_thousands_separator], seperator: Spree::Config[:currency_decimal_mark]) %></td>
+          <td class="actions">
+            <%= link_to_with_icon 'icon-search', Spree.t(:details), spree.admin_dhl_shipping_zone_path(shipping_zone), no_text: true %>
+            <%= link_to_with_icon 'icon-edit', Spree.t(:edit), spree.edit_admin_dhl_shipping_zone_path(shipping_zone), no_text: true %>
+            <%= link_to_delete shipping_zone, no_text: true, url: spree.admin_dhl_shipping_zone_path(shipping_zone) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

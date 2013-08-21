@@ -1,0 +1,54 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  activerecord:
+    models:
+      spree/dhl_country_zone: 'Country'
+      spree/dhl_shipping_zone: 'Shipping zone'
+      spree/dhl_surcharge: 'Surcharge'
+      spree/dhl_shipping_method: 'Shipping method'
+  spree:
+    dhl_surcharges: DHL Surcharges
+    surcharges: Surcharges
+    dhl_shipping_zones: DHL Shipping Zones
+    shipping_zones: Shipping Zones
+    shipping_zone: Shipping Zone
+    dhl_country_zones: DHL Country Zones
+    new_dhl_shipping_method: New DHL Shipping Method
+    new_dhl_shipping_zone: New DHL Shipping Zone
+    new_dhl_country_zone: New DHL Country Zone
+    new_dhl_surcharge: New DHL Surcharge
+    new_country: New Country
+    new_shipping_zone: New Shipping Zone
+    new_surcharge: New Surcharge
+    edit_country: Edit Country
+    edit_shipping_zone: Edit shipping zone
+    shipping_zone_method: Method
+    shipping_zone_name: Name
+    shipping_zone_countries: Countries
+    details: Details
+    method: Method
+    name: Name
+    zip_codes: Zip Codes
+    country: Country
+    country_zone_country: Country
+    country_zone_zip_codes: Zip Codes
+    countries: Countries
+    method_europlus: Europlus
+    method_express: Express
+    value: Value
+    is_absolute: Is absolute
+    surcharge_name: Name
+    surcharge_method: Method
+    surcharge_value: Value
+    edit_surcharge: Edit surcharge
+    dhl_shipping_methods: DHL shipping methods
+    shipping_method_method_class: Method class
+    shipping_method_name: Name
+    shipping_method_volume_factor: Volume factor
+    shipping_method_volume_size_threshold: Volume size threshold
+    per_weigh_unit: Price per weigh unit
+    opening_tariff: Opening tariff
+    description_europlus: DHL Europlus
+    description_express: DHL Express
