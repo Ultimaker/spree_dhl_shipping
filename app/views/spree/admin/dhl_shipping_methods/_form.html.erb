@@ -5,7 +5,7 @@
       <div class="alpha six columns">
         <div data-hook="method_class" class="field">
           <%= f.label :method_class, Spree.t(:method_class) %>
-          <%= f.collection_select(:method_class, [Spree::Calculator::Shipping::DhlEuroplus, Spree::Calculator::Shipping::DhlExpress], :to_s, :decription, {}, {:class => 'select2 fullwidth'}) %>
+          <%= f.collection_select(:method_class, [Spree::Calculator::Shipping::DhlEuroplus, Spree::Calculator::Shipping::DhlExpress], :to_s, :description, {}, {:class => 'select2 fullwidth'}) %>
         </div>
       </div>
       <div class="omega six columns">
