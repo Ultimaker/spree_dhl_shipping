@@ -29,7 +29,11 @@ module Spree
           allowed_zip_codes = [zip_code.gsub(/\D/, '')]
         end
 
-        chunked_address_zip_code = address_zip_code[0, allowed_zip_codes.first.length]
+        if allowed_zip_codes.any?
+          chunked_address_zip_code = address_zip_code[0, allowed_zip_codes.first.length]
+        else
+          chunked_address_zip_code = nil
+        end
 
         allowed = true if allowed_zip_codes.include? chunked_address_zip_code
       end
