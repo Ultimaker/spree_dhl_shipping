@@ -15,9 +15,11 @@ module Spree
     validates :method_class, uniqueness: true
 
     def shipment_allowed_to?(address)
-      zones = Spree::DhlCountryZone.unscoped.includes(:shipping_zone).where(country_id: address.country_id, spree_dhl_shipping_zones: { dhl_shipping_method_id: self.id }).keep_if { |zone| zone.zip_code_allowed?(address.zipcode) }
+      if address && address.country_id && address.zipcode
+        zones = Spree::DhlCountryZone.unscoped.includes(:shipping_zone).where(country_id: address.country_id, spree_dhl_shipping_zones: { dhl_shipping_method_id: self.id }).keep_if { |zone| zone.zip_code_allowed?(address.zipcode) }
+      end
 
-      return false unless zones.any?
+      return false if !zones || zones.none?
 
       true
     end
