@@ -5,7 +5,7 @@ module Spree
 
     alias_method :dhl_shipping_zone, :shipping_zone
 
-    attr_accessible :country, :country_id, :zip_codes
+    # attr_accessible :country, :country_id, :zip_codes
 
     default_scope joins(:country).order('spree_countries.name ASC')
 

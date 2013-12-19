@@ -6,7 +6,7 @@ module Spree
     alias_method :dhl_shipping_zones, :shipping_zones
     alias_method :dhl_surcharges, :surcharges
 
-    attr_accessible :method_class, :name, :volume_factor, :volume_size_threshold
+    # attr_accessible :method_class, :name, :volume_factor, :volume_size_threshold
 
     default_scope order('name ASC')
 
