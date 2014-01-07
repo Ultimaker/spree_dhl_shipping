@@ -4,7 +4,7 @@ module Spree
 
     # attr_accessible :name, :is_absolute, :shipping_method, :dhl_shipping_method_id, :value
 
-    default_scope order('name ASC')
+    default_scope { order('name ASC') }
 
     validates :shipping_method, :name, :value, presence: true
     validates :value, numericality: true

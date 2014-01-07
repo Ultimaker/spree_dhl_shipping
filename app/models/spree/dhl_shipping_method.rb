@@ -8,7 +8,7 @@ module Spree
 
     # attr_accessible :method_class, :name, :volume_factor, :volume_size_threshold
 
-    default_scope order('name ASC')
+    default_scope { order('name ASC') }
 
     validates :method_class, :name, :volume_factor, :volume_size_threshold, presence: true
     validates :volume_factor, :volume_size_threshold, numericality: true

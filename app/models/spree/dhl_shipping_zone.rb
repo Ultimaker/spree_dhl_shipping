@@ -8,7 +8,7 @@ module Spree
 
     # attr_accessible :shipping_method, :dhl_shipping_method_id, :name, :per_weigh_unit, :opening_tariff
 
-    default_scope order('spree_dhl_shipping_zones.name ASC')
+    default_scope { order('spree_dhl_shipping_zones.name ASC') }
 
     validates :shipping_method, :name, :per_weigh_unit, :opening_tariff, presence: true
     validates :per_weigh_unit, :opening_tariff, numericality: true

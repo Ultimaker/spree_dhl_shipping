@@ -7,7 +7,7 @@ module Spree
 
     # attr_accessible :country, :country_id, :zip_codes
 
-    default_scope joins(:country).order('spree_countries.name ASC')
+    default_scope { joins(:country).order('spree_countries.name ASC') }
 
     validates :country, :shipping_zone, presence: true
     validates :country_id, uniqueness: { scope: :shipping_zone_id }
