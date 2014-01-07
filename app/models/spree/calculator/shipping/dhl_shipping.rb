@@ -32,7 +32,11 @@ module Spree
 
         surcharges = dhl_shipping_method.surcharges_total
 
-        ((zone.per_weigh_unit * wm) + zone.opening_tariff) * surcharges
+        if zone
+          ((zone.per_weigh_unit * wm) + zone.opening_tariff) * surcharges
+        else
+          0
+        end
       end
 
       def total_volume(content_items)
