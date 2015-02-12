@@ -1,24 +1,19 @@
-<%= render partial: 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:surcharges) %> - <%= @dhl_shipping_method.name %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li>
-    <%= button_link_to Spree.t(:back), spree.admin_dhl_shipping_methods_path, icon: 'icon-arrow-left' %>
-  </li>
-  <li>
-    <%= button_link_to Spree.t(:new_surcharge), spree.new_admin_dhl_shipping_method_dhl_surcharge_path(@dhl_shipping_method), icon: 'icon-plus' %>
-  </li>
+  <%= button_link_to Spree.t(:back), spree.admin_dhl_shipping_methods_path, icon: 'arrow-left' %>
+  <%= button_link_to Spree.t(:new_surcharge), spree.new_admin_dhl_shipping_method_dhl_surcharge_path(@dhl_shipping_method), icon: 'plus', class: 'btn-success' %>
 <% end %>
 
 <% unless @dhl_surcharges.any? %>
-  <div class="no-objects-found">
-    <%= Spree.t(:no_results) %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: Spree::DhlSurcharge.model_name.human(count: :many)) %>,
+    <%= link_to Spree.t(:add_one), new_object_url %>!
   </div>
 <% else %>
-  <table class="index">
+  <table class="table">
     <colgroup>
       <col style="width: 15%">
       <col style="width: 45%">
@@ -40,7 +35,7 @@
           <td><%= surcharge.name %></td>
           <td><%= surcharge.is_absolute? ? number_to_currency(surcharge.value) : "#{(surcharge.value * 100)}%" %></td>
           <td class="actions">
-            <%= link_to_with_icon 'icon-edit', Spree.t(:edit), spree.edit_admin_dhl_surcharge_path(surcharge), no_text: true %>
+            <%= button_link_to_with_icon 'edit', Spree.t(:edit), spree.edit_admin_dhl_surcharge_path(surcharge), no_text: true %>
             <%= link_to_delete surcharge, no_text: true, url: spree.admin_dhl_surcharge_path(surcharge) %>
           </td>
         </tr>

@@ -1,30 +1,31 @@
 <div data-hook="admin_dhl_shipping_zone_form_fields">
-  <div class="alpha twelve columns">
-    <fieldset data-hook="dhl_shipping_zone" class=" no-border-bottom">
-      <legend align="center"><%= Spree.t(:general_settings) %></legend>
-      <div class="alpha six columns">
-        <div data-hook="shipping_method" class="field">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title"><%= Spree.t(:general_settings) %></h1>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-6">
+        <div data-hook="shipping_method" class="form-group">
           <%= f.label :shipping_method, Spree.t(:shipping_method) %>
-          <%= f.collection_select(:dhl_shipping_method_id, @dhl_shipping_methods, :id, :name, {}, {:class => 'select2 fullwidth'}) %>
+          <%= f.collection_select(:dhl_shipping_method_id, @dhl_shipping_methods, :id, :name, {}, {:class => 'select2'}) %>
         </div>
       </div>
-      <div class="omega six columns">
-        <div data-hook="name" class="field">
+      <div class="col-md-6">
+        <div data-hook="name" class="form-group">
           <%= f.label :name, Spree.t(:name) %>
-          <%= f.text_field :name, :class => 'fullwidth' %>
+          <%= f.text_field :name, :class => 'form-control' %>
         </div>
       </div>
-      <div class="clear"></div>
-      <div class="alpha six columns">
-        <div data-hook="per_weigh_unit" class="field">
+      <div class="col-md-6">
+        <div data-hook="per_weigh_unit" class="form-group">
           <%= f.label :per_weigh_unit, Spree.t(:per_weigh_unit) %>
-          <%= f.text_field :per_weigh_unit, :class => 'fullwidth' %>
+          <%= f.text_field :per_weigh_unit, :class => 'form-control' %>
         </div>
       </div>
-      <div class="omega six columns">
-        <div data-hook="opening_tariff" class="field">
+      <div class="col-md-6">
+        <div data-hook="opening_tariff" class="form-group">
           <%= f.label :opening_tariff, Spree.t(:opening_tariff) %>
-          <%= f.text_field :opening_tariff, :class => 'fullwidth' %>
+          <%= f.text_field :opening_tariff, :class => 'form-control' %>
         </div>
       </div>
     </fieldset>

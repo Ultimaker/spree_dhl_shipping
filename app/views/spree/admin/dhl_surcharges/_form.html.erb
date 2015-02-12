@@ -1,34 +1,32 @@
 <div data-hook="admin_dhl_surcharge_form_fields">
-  <div class="alpha twelve columns">
-    <fieldset data-hook="dhl_surcharge" class=" no-border-bottom">
-      <legend align="center"><%= Spree.t(:general_settings) %></legend>
-      <div class="alpha six columns">
-        <div data-hook="shipping_method" class="field">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title"><%= Spree.t(:general_settings) %></h1>
+    </div>
+    <div class="panel-body" data-hook="dhl_country_zone">
+      <div class="col-md-6">
+        <div data-hook="shipping_method" class="form-group">
           <%= f.label :shipping_method, Spree.t(:shipping_method) %>
-          <%= f.collection_select(:dhl_shipping_method_id, @dhl_shipping_methods, :id, :name, {}, {:class => 'select2 fullwidth'}) %>
+          <%= f.collection_select(:dhl_shipping_method_id, @dhl_shipping_methods, :id, :name, {}, {:class => 'select2'}) %>
         </div>
       </div>
-      <div class="omgea five columns">
-        <div data-hook="name" class="field">
+      <div class="col-md-6">
+        <div data-hook="name" class="form-group">
           <%= f.label :name, Spree.t(:name) %>
-          <%= f.text_field :name, :class => 'fullwidth' %>
+          <%= f.text_field :name, :class => 'form-control' %>
         </div>
       </div>
-      <div class="clear"></div>
-      <div class="alpha three columns">
-        <div data-hook="is_absolute" class="field">
-          <%= f.check_box :is_absolute, :class => 'fullwidth' %>
-          <%= f.label :is_absolute, Spree.t(:is_absolute) %>
+      <div class="col-md-6">
+        <div data-hook="is_absolute" class="form-group checkbox">
+          <%= f.label :is_absolute, f.check_box(:is_absolute) + ' ' + Spree.t(:is_absolute) %>
         </div>
       </div>
-      <div class="omega eight columns">
-        <div data-hook="value" class="field">
+      <div class="col-md-6">
+        <div data-hook="value" class="form-group">
           <%= f.label :value, Spree.t(:value) %>
-          <%= f.text_field :value, :class => 'fullwidth' %>
+          <%= f.text_field :value, :class => 'form-control' %>
         </div>
       </div>
-    </fieldset>
+    </div>
   </div>
-
-  <div class="clear"></div>
 </div>

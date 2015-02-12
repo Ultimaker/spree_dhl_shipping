@@ -1,21 +1,18 @@
-<%= render partial: 'spree/admin/shared/configuration_menu' %>
-
 <% content_for :page_title do %>
   <%= Spree.t(:dhl_shipping_methods) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li>
-    <%= button_link_to Spree.t(:new_dhl_shipping_method), new_object_url, icon: 'icon-plus' %>
-  </li>
+  <%= button_link_to Spree.t(:new_dhl_shipping_method), new_object_url, icon: 'add', class: 'btn-success' %>
 <% end %>
 
 <% unless @dhl_shipping_methods.any? %>
-  <div class="no-objects-found">
-    <%= Spree.t(:no_results) %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: Spree::DhlShippingMethod.model_name.human(count: :many)) %>,
+    <%= link_to Spree.t(:add_one), new_object_url %>!
   </div>
 <% else %>
-  <table class="index">
+  <table class="table">
     <colgroup>
       <col style="width: 25%">
       <col style="width: 26%">
@@ -40,8 +37,8 @@
           <td><%= method.volume_factor %></td>
           <td><%= method.volume_size_threshold %></td>
           <td class="actions">
-            <%= link_to_with_icon 'icon-globe', Spree.t(:shipping_zones), spree.admin_dhl_shipping_method_dhl_shipping_zones_path(method), no_text: true %>
-            <%= link_to_with_icon 'icon-paperclip', Spree.t(:surcharges), spree.admin_dhl_shipping_method_dhl_surcharges_path(method), no_text: true %>
+            <%= button_link_to_with_icon 'globe', Spree.t(:shipping_zones), spree.admin_dhl_shipping_method_dhl_shipping_zones_path(method), no_text: true %>
+            <%= button_link_to_with_icon 'paperclip', Spree.t(:surcharges), spree.admin_dhl_shipping_method_dhl_surcharges_path(method), no_text: true %>
             <%= link_to_edit method, no_text: true %>
             <%= link_to_delete method, no_text: true %>
           </td>
