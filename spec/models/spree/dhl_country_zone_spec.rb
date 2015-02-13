@@ -1,12 +1,6 @@
 require 'spec_helper'
 
 describe Spree::DhlCountryZone do
-  describe 'attributes' do
-    it { should allow_mass_assignment_of :country }
-    it { should allow_mass_assignment_of :zip_codes }
-    it { should_not allow_mass_assignment_of :shipping_zone }
-  end
-
   describe 'associations' do
     it { should belong_to(:country).class_name('Spree::Country') }
     it { should belong_to(:shipping_zone).class_name('Spree::DhlShippingZone') }
