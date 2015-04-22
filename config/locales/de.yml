@@ -1,0 +1,51 @@
+de:
+  activerecord:
+    models:
+      spree/dhl_country_zone: 'Land'
+      spree/dhl_shipping_zone: 'Versandzone'
+      spree/dhl_surcharge: 'Zuschlag'
+      spree/dhl_shipping_method: 'Versandmethode'
+  spree:
+    dhl_surcharges: DHL Zuschläge
+    surcharges: Zuschläge
+    dhl_shipping_zones: DHL Versandzonen
+    shipping_zones: Versandzonen
+    shipping_zone: Versandzone
+    dhl_country_zones: DHL Länderzone
+    new_dhl_shipping_method: Neue DHL Versandmethode
+    new_dhl_shipping_zone: Neue DHL Versandzone
+    new_dhl_country_zone: Neue DHL Länderzone
+    new_dhl_surcharge: Neuer DHL Zuschlag
+    new_country: Neues Land
+    new_shipping_zone: Neue Versanzone
+    new_surcharge: Neuer Zuschlag
+    edit_country: Land bearbeiten
+    edit_shipping_zone: Versandzone bearbeiten
+    shipping_zone_method: Methode
+    shipping_zone_name: Name
+    shipping_zone_countries: Länder
+    details: Details
+    method: Methode
+    name: Name
+    zip_codes: Postleitzahlen
+    country: Land
+    country_zone_country: Land
+    country_zone_zip_codes: Postleitzahlen
+    countries: Länder
+    method_europlus: Europlus
+    method_express: Express
+    value: Wert
+    is_absolute: absoluter Wert
+    surcharge_name: Name
+    surcharge_method: Methode
+    surcharge_value: Wert
+    edit_surcharge: Zuschlag bearbeiten
+    dhl_shipping_methods: DHL Versandmethoden
+    shipping_method_method_class: Methode
+    shipping_method_name: Name
+    shipping_method_volume_factor: Volumenfaktor
+    shipping_method_volume_size_threshold: Volumen Schwellwert
+    per_weigh_unit: Preis je Gewichtseinheit
+    opening_tariff: Opening tariff
+    description_europlus: DHL Europlus
+    description_express: DHL Express
