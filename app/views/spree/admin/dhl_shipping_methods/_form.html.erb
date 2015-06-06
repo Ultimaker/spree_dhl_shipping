@@ -1,34 +1,34 @@
 <div data-hook="admin_dhl_shipping_method_form_fields">
-  <div class="alpha twelve columns">
-    <fieldset data-hook="dhl_shipping_method" class=" no-border-bottom">
-      <legend align="center"><%= Spree.t(:general_settings) %></legend>
-      <div class="alpha six columns">
-        <div data-hook="method_class" class="field">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title"><%= Spree.t(:general_settings) %></h1>
+    </div>
+    <div class="panel-body">
+      <div class="col-md-6">
+        <div data-hook="method_class" class="form-group">
           <%= f.label :method_class, Spree.t(:method_class) %>
-          <%= f.collection_select(:method_class, [Spree::Calculator::Shipping::DhlEuroplus, Spree::Calculator::Shipping::DhlExpress], :to_s, :description, {}, {:class => 'select2 fullwidth'}) %>
+          <%= f.collection_select(:method_class, [Spree::Calculator::Shipping::DhlEuroplus, Spree::Calculator::Shipping::DhlExpress], :to_s, :description, {}, {:class => 'select2'}) %>
         </div>
       </div>
-      <div class="omega six columns">
-        <div data-hook="name" class="field">
+      <div class="col-md-6">
+        <div data-hook="name" class="form-group">
           <%= f.label :name, Spree.t(:name) %>
-          <%= f.text_field :name, :class => 'fullwidth' %>
+          <%= f.text_field :name, :class => 'form-control' %>
         </div>
       </div>
-      <div class="clear"></div>
-      <div class="alpha six columns">
-        <div data-hook="volume_factor" class="field">
-          <%= f.label :volume_factor, Spree.t(:volume_factor) %>
-          <%= f.text_field :volume_factor, :class => 'fullwidth' %>
-        </div>
-      </div>
-      <div class="omega six columns">
-        <div data-hook="volume_size_threshold" class="field">
-          <%= f.label :volume_size_threshold, Spree.t(:volume_size_threshold) %>
-          <%= f.text_field :volume_size_threshold, :class => 'fullwidth' %>
-        </div>
-      </div>
-    </fieldset>
-  </div>
 
-  <div class="clear"></div>
+      <div class="col-md-6">
+        <div data-hook="volume_factor" class="form-group">
+          <%= f.label :volume_factor, Spree.t(:volume_factor) %>
+          <%= f.text_field :volume_factor, :class => 'form-control' %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div data-hook="volume_size_threshold" class="form-group">
+          <%= f.label :volume_size_threshold, Spree.t(:volume_size_threshold) %>
+          <%= f.text_field :volume_size_threshold, :class => 'form-control' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

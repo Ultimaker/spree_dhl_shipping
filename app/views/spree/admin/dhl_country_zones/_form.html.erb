@@ -1,21 +1,21 @@
 <div data-hook="admin_dhl_country_zone_form_fields">
-  <div class="alpha twelve columns">
-    <fieldset data-hook="dhl_country_zone" class=" no-border-bottom">
-      <legend align="center"><%= Spree.t(:general_settings) %></legend>
-      <div class="alpha six columns">
-        <div data-hook="country" class="field">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="panel-title"><%= Spree.t(:general_settings) %></h1>
+    </div>
+    <div class="panel-body" data-hook="dhl_country_zone">
+      <div class="col-md-6">
+        <div data-hook="country" class="form-group">
           <%= f.label :country, Spree.t(:country) %>
-          <%= f.collection_select(:country_id, @countries, :id, :name, {}, {:class => 'select2 fullwidth'}) %>
+          <%= f.collection_select(:country_id, @countries, :id, :name, {}, {:class => 'select2'}) %>
         </div>
       </div>
-      <div class="omega six columns">
-        <div data-hook="zip_codes" class="field">
+      <div class="col-md-6">
+        <div data-hook="zip_codes" class="form-group">
           <%= f.label :zip_codes, Spree.t(:zip_codes) %>
-          <%= f.text_field :zip_codes, :class => 'fullwidth' %>
+          <%= f.text_field :zip_codes, :class => 'form-control' %>
         </div>
       </div>
-    </fieldset>
+    </div>
   </div>
-
-  <div class="clear"></div>
 </div>

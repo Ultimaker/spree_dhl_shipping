@@ -25,7 +25,11 @@ module Spree
     end
 
     def zones_for_address(address)
-      Spree::DhlCountryZone.unscoped.includes(:shipping_zone).order('spree_dhl_shipping_zones.opening_tariff ASC, spree_dhl_shipping_zones.per_weigh_unit ASC').where(country_id: address.country_id, spree_dhl_shipping_zones: { dhl_shipping_method_id: self.id }).keep_if { |zone| zone.zip_code_allowed?(address.zipcode) }.map(&:shipping_zone).flatten
+      Spree::DhlCountryZone.unscoped.includes(:shipping_zone)
+                           .order('spree_dhl_shipping_zones.opening_tariff ASC, spree_dhl_shipping_zones.per_weigh_unit ASC')
+                           .where(country_id: address.country_id, spree_dhl_shipping_zones: { dhl_shipping_method_id: self.id })
+                           .all.to_a.keep_if { |zone| zone.zip_code_allowed?(address.zipcode) }
+                           .map(&:shipping_zone).flatten
     end
 
     def surcharges_total

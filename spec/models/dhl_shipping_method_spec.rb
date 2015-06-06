@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe DhlShippingMethod do
+describe Spree::DhlShippingMethod do
   pending "add some examples to (or delete) #{__FILE__}"
 end
